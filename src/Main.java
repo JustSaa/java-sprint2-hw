@@ -5,9 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        MonthlyReport monthlyReport = new MonthlyReport();
-        YearlyReport yearlyReport = new YearlyReport();
-        ReportChecker checker = new ReportChecker(yearlyReport, monthlyReport);
+        Engine engine = new Engine();
 
 
         while (true) {
@@ -15,31 +13,38 @@ public class Main {
             printMenu();
             //Считываем команду
             int userInput = sc.nextInt();
-            if (userInput == 1) {
-                monthlyReport.loadMonthlyReport();
-            } else if (userInput == 2) {
-                yearlyReport.loadYearlyReport();
-            } else if (userInput == 3) {
-                if (checker.checkLoad()) {
-                    checker.checkReports();
-                }
-            } else if (userInput == 4) {
-                if (checker.checkLoad()) {
-                    monthlyReport.findItem();
-                }
-            } else if (userInput == 5) {
-                if (checker.checkLoad()) {
-                    yearlyReport.printYearlyInfo();
-                }
-            } else if (userInput == 0) {
-                System.out.println("Пока!");
-                sc.close();
-                return;
-            } else {
-                System.out.println("Такой команды нет");
-            }
+            switch (userInput) {
+                case 1:
+                    engine.loadMonthlyReport();
+                    break;
+                case 2:
+                    engine.loadYearlyReport();
+                    break;
+                case 3:
+                    if (engine.checkLoad()) {
+                        engine.checkReports();
+                    }
+                    break;
+                case 4:
+                    if (engine.checkLoad()) {
+                        engine.printMonthlyInfo();
+                    }
+                    break;
+                case 5:
+                    if (engine.checkLoad()) {
+                        engine.printYearlyInfo();
+                    }
+                    break;
+                case 0:
+                    System.out.println("Пока!");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Такой команды нет");
 
+            }
         }
+
     }
 
     static void printMenu() {
