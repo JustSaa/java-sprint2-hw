@@ -9,7 +9,8 @@ public class YearlyReport {
     ArrayList<ItemsByMonth> items;
 
     HashMap<Integer, Integer> yearlyProfit=new HashMap<>();;
-    int expensesAvg, incomeAvg;
+    int expensesAvg; //Учел посмотрел в Code Conventions
+    int incomeAvg;
 
     public YearlyReport(ArrayList<ItemsByMonth> items) {
         this.items = items;

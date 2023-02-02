@@ -1,9 +1,12 @@
 import java.util.ArrayList;
 
 public class MonthlyReport {
-    int expense, income;
-    String mostProfitableItem, biggestSpendingItem;
-    int mostProfitableItemAmount, biggestSpendingItemAmount;
+    int expense;
+    int income;
+    String mostProfitableItem;
+    String biggestSpendingItem;
+    int mostProfitableItemAmount;
+    int biggestSpendingItemAmount;
 
     ArrayList<Item> report;
 
